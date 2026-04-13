@@ -61,5 +61,9 @@ class QTrainer:
         # 2 Q_new = r + y * next_predicted Q value
         # pred.clone()
         # preds[argmax(action)] = Q_mew
+        self.optimizer.zero_grad()
+        loss = self.criterion(target, pred)
+        loss.backward()
+        self.optimizer.step()
 
 
