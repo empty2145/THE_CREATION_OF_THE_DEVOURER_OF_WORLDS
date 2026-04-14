@@ -36,7 +36,7 @@ class QTrainer:
         state = torch.tensor(state, dtype=torch.float)
         next_state = torch.tensor(next_state, dtype=torch.float)
         reward = torch.tensor(reward, dtype=torch.float)
-        action = torch.tensor(next_state, dtype=torch.float)
+        action = torch.tensor(action, dtype=torch.float)
         # (n, x)
 
         if len(state.shape) == 1:
@@ -48,9 +48,9 @@ class QTrainer:
             done = (done, )
 
         # 1: predicted Q values with current state
-        pred = = self.model(state)
+        pred = self.model(state)
 
-        target = prd.clone()
+        target = pred.clone()
         for idx in range(len(done)):
             Q_new = reward[idx]
             if not done[idx]:
