@@ -29,7 +29,7 @@ BLUE2 = (0, 100, 255)
 BLACK = (0,0,0)
 
 BLOCK_SIZE = 20
-SPEED = 20
+SPEED = 60
 
 class SnakeGameAI:
     
@@ -73,7 +73,7 @@ class SnakeGameAI:
                 quit()
         
         # 2. move
-        self._move(self.action) # update the head
+        self._move(action) # update the head
         self.snake.insert(0, self.head)
         
         # 3. check if game over
